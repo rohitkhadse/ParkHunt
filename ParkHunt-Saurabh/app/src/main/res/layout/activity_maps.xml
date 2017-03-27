@@ -1,66 +1,89 @@
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".maps.MapsActivity"
-    >
+    tools:context=".maps.MapsActivity">
 
-
-    <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:orientation="horizontal">
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:id="@+id/TFaddress"
-        android:layout_weight="1"
-        android:hint="Search for location"/>
-
-    <Button
-        android:text="Search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bSearch"
-        android:onClick="onSearch"/>
-    </LinearLayout>
-
-   <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:map="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:id="@+id/map"
-              android:name="com.google.android.gms.maps.MapFragment"
-              android:layout_width="311dp"
-              android:layout_height="464dp"
-              tools:context="com.example.saurabh.parkhunt.maps.MapsActivity"
-              tools:layout="@layout/activity_maps"/>
-
-    <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-
-     <Button
-         android:text="+"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:id="@+id/bZoomIn"
-         android:layout_weight="1"
-         android:onClick="onZoom"/>
-    <Button
-        android:text="-"
+    <android.support.v4.widget.DrawerLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bZoomout"/>
+        android:layout_height="match_parent"
+        android:id="@+id/drawerLayout">
 
-    </LinearLayout>
+        <android.support.design.widget.NavigationView
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            app:menu="@menu/navigation_menu"
+            android:layout_gravity="start"
+            >
+        </android.support.design.widget.NavigationView>
 
-  </LinearLayout>
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:map="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.MapFragment"
+                android:layout_width="311dp"
+                android:layout_height="464dp"
+                tools:context="com.example.saurabh.parkhunt.maps.MapsActivity"
+                tools:layout="@layout/activity_maps">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:layout_gravity="left|top"
+                    android:id="@+id/TFaddress"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:layout_marginTop="20dp"
+                    android:paddingRight="10dp"
+                    android:hint="Search"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|top"
+                    android:text="Search"
+                    android:padding="10dp"
+                    android:layout_marginTop="20dp"
+                    android:paddingRight="10dp"
+                    android:id="@+id/bSearch"
+                    android:onClick="onSearch"/>
+            </fragment>
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:text="+"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bZoomIn"
+                    android:layout_weight="1"
+                    android:onClick="onZoom"/>
+                <Button
+                    android:text="-"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bZoomout"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v4.widget.DrawerLayout>
+
+
+</RelativeLayout>
