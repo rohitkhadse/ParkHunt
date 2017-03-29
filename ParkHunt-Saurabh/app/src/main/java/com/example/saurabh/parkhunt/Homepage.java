@@ -9,6 +9,7 @@ import android.widget.Button;
 
 public class Homepage extends AppCompatActivity {
 
+    //Home page
     public void init()
     {
        Button button=(Button)findViewById(R.id.button);
